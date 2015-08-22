@@ -1,0 +1,26 @@
+{
+  "name": "etherlisten-websocket",
+  "version": "1.0.0",
+  "description": "Websocket notifications of new transactions and blocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kobigurk/etherlisten-websocket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kobigurk/etherlisten-websocket/issues"
+  },
+  "homepage": "https://github.com/kobigurk/etherlisten-websocket",
+  "dependencies": {
+    "agenda": "^0.6.28",
+    "express": "^4.13.3",
+    "socket.io": "^1.3.6",
+    "web3": "^0.12.2",
+    "ws": "^0.8.0"
+  }
+}
