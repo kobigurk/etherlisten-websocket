@@ -38,7 +38,7 @@ txFilter.watch(function (error, result) {
         console.log(error);
         return;
     }
-//    var tx = web3.eth.getTransaction(result);
+    var tx = web3.eth.getTransaction(result);
     wss.broadcast({
         subscription: 'transactions',
         data: {
