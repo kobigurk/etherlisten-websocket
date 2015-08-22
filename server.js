@@ -42,7 +42,8 @@ txFilter.watch(function (error, result) {
     wss.broadcast({
         subscription: 'transactions',
         data: {
-            value: tx.value.toString()
+            value: tx.value.toString(),
+            to: tx.to.toString()
         }
     });
 });
