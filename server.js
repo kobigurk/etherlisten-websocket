@@ -7,7 +7,9 @@ wss.broadcast = function broadcast(data) {
       wss.clients.forEach(function each(client) {
           try {
               client.send(JSON.stringify(data), function (err) {
-                  console.log(err.message);
+                  if (err) {
+                      console.log(err.message);
+                  }
               });
           } catch (e) {
               console.log(e.message);
@@ -15,6 +17,7 @@ wss.broadcast = function broadcast(data) {
       });
 };
 wss.on('connection', function (ws) {
+    console.log('Connected: ' + ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress);
 });
 wss.on('error', function (err) {
     console.log(err);
