@@ -20,7 +20,7 @@ blockFilter.watch(function (error, result) {
         return;
     }
     var block = web3.eth.getBlock(result);
-    console.log(block);
+//    console.log(block);
     wss.broadcast({
         subscription: 'blocks',
         data: {
@@ -38,7 +38,7 @@ txFilter.watch(function (error, result) {
         console.log(error);
         return;
     }
-    var tx = web3.eth.getTransaction(result);
+//    var tx = web3.eth.getTransaction(result);
     wss.broadcast({
         subscription: 'transactions',
         data: {
