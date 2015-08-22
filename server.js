@@ -17,9 +17,7 @@ wss.broadcast = function broadcast(data) {
       });
 };
 wss.on('connection', function (ws) {
-    console.log(ws.upgradeReq.headers);
-    console.log(ws.upgradeReq.connection.remoteAddress);
-    console.log('Connected: ' + ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress);
+    console.log('Connected: ' + (ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress));
 });
 wss.on('error', function (err) {
     console.log(err);
