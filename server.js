@@ -48,11 +48,14 @@ txFilter.watch(function (error, result) {
         return;
     }
     var tx = web3.eth.getTransaction(result);
+    var isContract = tx.to !== null && web3.eth.getCode(tx.to.toString()) !== '0x';
     wss.broadcast({
         subscription: 'transactions',
         data: {
             value: tx.value.toString(),
-            to: tx.to.toString()
+            to: tx.to === null ? null : tx.to.toString(),
+            hash: tx.hash,
+            isContract: isContract
         }
     });
 });
