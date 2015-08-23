@@ -1,5 +1,6 @@
 var web3 = require('web3');
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
+var ua = require('universal-analytics');
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({host: '0.0.0.0', port:8085});
 
@@ -18,6 +19,8 @@ wss.broadcast = function broadcast(data) {
 };
 wss.on('connection', function (ws) {
     console.log('Connected: ' + (ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress));
+    var visitor = ua('UA-66637150-1');
+    visitor.pageview('/websocket').send();
 });
 wss.on('error', function (err) {
     console.log(err);
