@@ -55,7 +55,8 @@ txFilter.watch(function (error, result) {
             value: tx.value.toString(),
             to: tx.to === null ? null : tx.to.toString(),
             hash: tx.hash,
-            isContract: isContract
+            isContract: isContract,
+            gas: tx.gasUsed
         }
     });
 });
