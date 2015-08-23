@@ -19,8 +19,8 @@ wss.broadcast = function broadcast(data) {
 };
 wss.on('connection', function (ws) {
     console.log('Connected: ' + (ws.upgradeReq.headers['x-forwarded-for'] || ws.upgradeReq.connection.remoteAddress));
-    var visitor = ua('UA-66637150-1');
-    visitor.pageview('/websocket').send();
+    //var visitor = ua('UA-66637150-1');
+    //visitor.pageview('/websocket').send();
 });
 wss.on('error', function (err) {
     console.log(err);
