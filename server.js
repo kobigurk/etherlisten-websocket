@@ -51,7 +51,7 @@ txFilter.watch(function (error, result) {
         return;
     }
     var tx = web3.eth.getTransaction(result);
-    var isContract = tx.to !== null && web3.eth.getCode(tx.to.toString()) !== '0x';
+    var isContract = tx.to !== null && web3.eth.getCode(tx.to.toString()) !== '0x' && tx.input !== null && tx.input !== '0x';
     wss.broadcast({
         subscription: 'transactions',
         data: {
